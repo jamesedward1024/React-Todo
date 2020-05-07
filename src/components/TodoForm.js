@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 
 export default class TodoForm extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             todo : ""
         }
     }
 
-    handleSubmit = e => { }
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.addTodo(this.state.todo);
+        this.setState({ todo: "" })
+
+    }
     handleChange = e => {
         this.setState({
             todo: e.target.value

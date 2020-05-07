@@ -6,8 +6,12 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-
+        todoList: []
     }
+  }
+
+  addTodo = todo => {
+  console.log(todo);
   }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -16,8 +20,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm />
-        <TodoList />
+        <TodoForm addTodo={this.addTodo} />
+        <TodoList todoList={this.state.todoList} />
       </div>
     );
   }
